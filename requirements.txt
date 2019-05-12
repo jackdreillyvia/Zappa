@@ -16,6 +16,7 @@ durationpy==0.5           # via -r requirements.in (line 3)
 future==0.18.2            # via -r requirements.in (line 11)
 hjson==3.0.1              # via -r requirements.in (line 4)
 idna==2.9                 # via requests
+mangum
 jmespath==0.10.0          # via -r requirements.in (line 5), boto3, botocore
 kappa==0.6.0              # via -r requirements.in (line 6)
 pip-tools==5.2.1          # via -r requirements.in (line 22)
