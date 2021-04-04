@@ -647,9 +647,8 @@ class Zappa:
         if use_precompiled_packages:
             print("Downloading and installing dependencies..")
             installed_packages = self.get_installed_packages(site_packages, site_packages_64)
-
-            try:
-                for installed_package_name, installed_package_version in installed_packages.items():
+            for installed_package_name, installed_package_version in installed_packages.items():
+                try:
                     cached_wheel_path = self.get_cached_manylinux_wheel(installed_package_name, installed_package_version, disable_progress)
                     if cached_wheel_path:
                         # Otherwise try to use manylinux packages from PyPi..
@@ -658,9 +657,9 @@ class Zappa:
                         with zipfile.ZipFile(cached_wheel_path) as zfile:
                             zfile.extractall(temp_project_path)
 
-            except Exception as e:
-                print(e)
-                # XXX - What should we do here?
+                except Exception as e:
+                    print(e)
+                    # XXX - What should we do here?
 
         # Cleanup
         for glob_path in exclude_glob:
