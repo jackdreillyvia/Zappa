@@ -777,12 +777,12 @@ class Zappa:
             package_to_keep += os.listdir(site_packages_64)
 
         package_to_keep = [x.lower() for x in package_to_keep]
+        
 
         installed_packages = {package.project_name.lower(): package.version for package in
                               pkg_resources.WorkingSet()
                               if package.project_name.lower() in package_to_keep
                               or package.location.lower() in [site_packages.lower(), site_packages_64.lower()]}
-
         return installed_packages
 
     @staticmethod
