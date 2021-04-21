@@ -1536,7 +1536,7 @@ class ZappaCLI:
         calling the CreateDeployment operation: Stage name only allows
         a-zA-Z0-9_" if the pattern does not match)
         """
-        if self.stage_name_env_pattern.match(stage_name):
+        if not self.stage_config['api_gateway_enabled'] or self.stage_name_env_pattern.match(stage_name):
             return True
         raise ValueError("AWS requires stage name to match a-zA-Z0-9_")
 
